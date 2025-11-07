@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Songnation</title>
+    <style>
+      html,body{height:100%;margin:0}
+      body{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        background: linear-gradient(135deg,#0f172a 0%,#021431 100%);
+        color:#fff;
+        font-family:Inter,system-ui,Arial,sans-serif;
+      }
+
+      .title{
+        font-size:6rem;
+        font-weight:800;
+        letter-spacing:0.02em;
+        display:inline-block;
+        animation:spin 4s linear infinite;
+        transform-origin:center;
+        text-shadow:0 6px 18px rgba(2,6,23,0.6);
+      }
+
+      @keyframes spin{
+        from{transform:rotate(0deg)}
+        to{transform:rotate(360deg)}
+      }
+
+      @media (max-width:600px){
+        .title{font-size:3rem}
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="title">Songnation</h1>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "songnationapp",
+  "version": "0.0.1",
+  "description": "Songnation é um marketplace que conecta compositores e artistas para compra e venda direta de letras e composições originais. A plataforma democratiza o acesso à criação musical, valorizando o compositor e agilizando o processo de produção artística.Desenvolvido como uma SPA em Vue.js 3 com Quasar ",
+  "productName": "Songnation",
+  "author": "Cauan Meira Guerreiro <160766478+Cauanmguerreiro@users.noreply.github.com>",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "npx serve . -l 8080",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": "^28 || ^26 || ^24 || ^22 || ^20",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  }
+}

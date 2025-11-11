@@ -1,25 +1,23 @@
-// Quasar SCSS (& Sass) Variables
+// Variáveis SCSS (& Sass) do Quasar
 // --------------------------------------------------
-// To customize the look and feel of this app, you can override
-// the Sass/SCSS variables found in Quasar's source Sass/SCSS files.
+// Para customizar a aparência deste app, você pode sobrescrever
+// as variáveis Sass/SCSS encontradas nos arquivos fonte do Quasar.
 
-// Check documentation for full list of Quasar variables
+// É altamente recomendado alterar as cores padrão
+// para corresponder à identidade visual do seu app.
 
-// Your own variables (that are declared here) and Quasar's own
-// ones will be available out of the box in your .vue/.scss/.sass files
+// ===================================
+// CORES (Extraído da imagem)
+// ===================================
+$primary:   #9c27b0; // O roxo principal usado para botões e estados ativos
+$secondary: #3F51B5; // A cor azul/índigo usada para a tag 'Singer'
+$accent:    #E040FB; // Um roxo/magenta mais brilhante para destaques
 
-// It's highly recommended to change the default colors
-// to match your app's branding.
-// Tip: Use the "Theme Builder" on Quasar's documentation website.
+$dark:      #1d1d1d; // Fundo do card/sidebar/header
+$dark-page: #121212; // Fundo principal da página
 
-$primary: #1976d2;
-$secondary: #26a69a;
-$accent: #9c27b0;
+$positive:  #21ba45;
+$negative:  #c10015;
+$info:      #31ccec;
+$warning:   #f2c037;
 
-$dark: #1d1d1d;
-$dark-page: #121212;
-
-$positive: #21ba45;
-$negative: #c10015;
-$info: #31ccec;
-$warning: #f2c037;

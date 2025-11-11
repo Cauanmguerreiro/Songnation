@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+
+// Estilos extraídos de MainLayout.vue
+
+// Esta classe é aplicada pelo Vue Router ao link ativo ('to' do QItem)
+.q-router-link--active {
+  background-color: $primary; // $primary vem do seu quasar.variables.scss
+  color: white;
+  border-radius: 8px;
+}
+
+// Isso adiciona o espaçamento lateral e o arredondamento para todos os itens,
+// fazendo com que o fundo roxo não toque as bordas.
+.main-menu-list .q-item {
+  margin: 6px 12px;
+  border-radius: 8px;
+}
+
+/* Estilo customizado para o campo de busca */
+.search-input {
+  /* Esta é a cor de fundo do input na sua imagem */
+  background-color: #2b2330;
+  border-radius: 28px; /* Garante o arredondamento completo */
+
+  /* Remove o fundo padrão do q-field 'filled' */
+  .q-field__control {
+    background: none !important;
+    color: white;
+  }
+
+  /* Estiliza o ícone */
+  .q-field__prepend .q-icon {
+    color: #aaa; /* Cor cinza para o ícone de busca */
+  }
+}
+
+/* Drawer brand/logo */
+.drawer-brand {
+  padding: 0 12px;
+}
+
+.drawer-brand .logo {
+  height: 44px;
+  width: auto;
+  margin-right: 8px;
+}
+
+.drawer-brand q-toolbar-title {
+  font-size: 1.05rem;
+}
+
+/* Título do drawer estilizado conforme solicitado */
+.drawer-brand q-toolbar-title {
+  font-family: 'Hammersmith One', sans-serif;
+  color: #363923;
+}
+
+/* Imagem de texto (textologo.png) usada no lugar do título */
+.text-logo {
+  height: 28px; /* ajuste conforme necessário */
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 4px;
+}

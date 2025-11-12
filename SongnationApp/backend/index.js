@@ -1,1 +1,0 @@
-console.log("Server will start some day...");

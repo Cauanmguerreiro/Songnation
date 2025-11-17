@@ -10,7 +10,7 @@
 
       <q-toolbar style="height: 64px">
         <div class="drawer-brand row items-center no-wrap">
-          <img src="/src/assets/logodrawer.png" alt="Logo" class="logo" />
+      
           <img src="/src/assets/textologo.png" alt="SongNation" class="text-logo" />
         </div>
         <q-btn dense flat round icon="close" class="lt-md"
@@ -87,8 +87,11 @@ watch(() => props.modelValue, v => (localValue.value = v))
   margin-right: 8px;
 }
 .text-logo {
-  height: 28px;
+  padding-left: 2.5vh;
+  height: 20vh;  /* antes era 28px */
+  width: auto;
 }
+
 .main-menu-list .q-item {
   margin: 6px 12px;
   border-radius: 8px;

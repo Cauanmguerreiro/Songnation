@@ -1,42 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
 
-// Estilos extraídos de MainLayout.vue
+// === ESTILOS GLOBAIS DO LAYOUT ===
 
-// Esta classe é aplicada pelo Vue Router ao link ativo ('to' do QItem)
+// Link ativo do Vue Router (QItem com "to")
 .q-router-link--active {
-  background-color: $primary; // $primary vem do seu quasar.variables.scss
+  background-color: $primary; // vem do seu quasar.variables.scss
   color: white;
   border-radius: 8px;
 }
 
-// Isso adiciona o espaçamento lateral e o arredondamento para todos os itens,
-// fazendo com que o fundo roxo não toque as bordas.
+// Margem e arredondamento para todos os itens da lista principal
 .main-menu-list .q-item {
   margin: 6px 12px;
   border-radius: 8px;
 }
 
-/* Estilo customizado para o campo de busca */
-.search-input {
-  /* Esta é a cor de fundo do input na sua imagem */
-  background-color: #2b2330;
-  border-radius: 28px; /* Garante o arredondamento completo */
+// ===============================
+// CAMPO DE BUSCA
+// ===============================
 
-  /* Remove o fundo padrão do q-field 'filled' */
+.search-input {
+  background-color: #2b2330;
+  border-radius: 28px;
+
   .q-field__control {
     background: none !important;
     color: white;
   }
 
-  /* Estiliza o ícone */
   .q-field__prepend .q-icon {
-    color: #aaa; /* Cor cinza para o ícone de busca */
+    color: #aaa;
   }
 }
 
-/* Drawer brand/logo */
+// ===============================
+// DRAWER / SIDEBAR
+// ===============================
+
+// Container onde ficam o logo e o texto
 .drawer-brand {
   padding: 0 12px;
+  display: flex;
+  align-items: center;
 }
 
 .drawer-brand .logo {
@@ -45,21 +50,47 @@
   margin-right: 8px;
 }
 
+// Quando você usa um título (caso use q-toolbar-title)
 .drawer-brand q-toolbar-title {
   font-size: 1.05rem;
-}
-
-/* Título do drawer estilizado conforme solicitado */
-.drawer-brand q-toolbar-title {
   font-family: 'Hammersmith One', sans-serif;
   color: #363923;
 }
 
-/* Imagem de texto (textologo.png) usada no lugar do título */
+// Imagem da logo de texto (textologo.png)
 .text-logo {
-  height: 28px; /* ajuste conforme necessário */
+  height: 28px;
   width: auto;
   display: inline-block;
   vertical-align: middle;
   margin-left: 4px;
 }
+
+// ===============================
+// AVATAR / PERFIL
+// ===============================
+
+.q-list .q-item {
+  border-radius: 8px;
+}
+
+.q-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+// ===============================
+// GERAL
+// ===============================
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.bg-dark {
+  background-color: #1c1a20 !important;
+}
+
+.text-white {
+  color: white !important;
+}
+

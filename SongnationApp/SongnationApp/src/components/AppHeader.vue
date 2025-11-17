@@ -25,10 +25,7 @@
 
       <q-space />
 
-      <q-btn flat dense round aria-label="Notificações">
-        <q-icon name="notifications" />
-        <q-badge floating color="primary" dot />
-      </q-btn>
+
 
     </q-toolbar>
   </q-header>

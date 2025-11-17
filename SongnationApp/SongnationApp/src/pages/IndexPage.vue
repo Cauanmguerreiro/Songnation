@@ -42,7 +42,7 @@
       <!-- 1. Destaques da Semana -->
       <div class="section-block">
         <div class="section-header row justify-between items-center q-mb-sm">
-          <h2>Destaques da Semana</h2>
+          <h2>Artistas Em Destaque</h2>
           <q-btn flat label="Ver tudo" to="/destaques" color="primary" />
         </div>
 
@@ -77,7 +77,7 @@
       <!-- 3. Compositores em Alta -->
       <div class="section-block">
         <div class="section-header row justify-between items-center q-mb-sm">
-          <h2>Compositores em Alta</h2>
+          <h2>Novos Artista</h2>
           <q-btn flat label="Ver ranking" to="/compositores" color="primary" />
         </div>
 
@@ -134,9 +134,34 @@ onMounted(() => {
 <style scoped>
 /* HERO */
 .hero-section {
-  background: linear-gradient(135deg, #241c2e, #120f16);
-  padding-top: 120px;
-  padding-bottom: 120px;
+  width: 100%;
+  min-height: 320px;
+  background-image: url('src/assets/hero-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 20px;
+  color: white;
+}
+
+/* DARK OVERLAY SEM REMOVER A IMAGEM */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.815);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-title {
@@ -162,13 +187,8 @@ onMounted(() => {
 }
 
 .main-search {
-  background: #2b2330;
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 40px;
-}
-
-.main-search .q-field__control {
-  background: none !important;
-  color: white;
 }
 
 .cards-row {

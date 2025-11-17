@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import conectaDB from './dbConnect.js';
 import routeComposicoes from './routes/routeComposicoes.js';
+import routeUsuarios from './routes/routeUsuarios.js';
 dotenv.config();
 
 const PORT = 5000;
@@ -20,3 +21,4 @@ app.listen(PORT, () => {
 
 app.use(express.json());
 app.use('/composicoes', routeComposicoes);
+app.use('/usuarios', routeUsuarios);

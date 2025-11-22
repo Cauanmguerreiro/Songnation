@@ -25,7 +25,7 @@
 
       <q-space />
 
-
+      <q-btn v-if="!authStore.isLoggedIn" flat label="Entrar" to="/login" />
 
     </q-toolbar>
   </q-header>
@@ -33,7 +33,10 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useAuthStore } from 'src/stores/auth'
+
 const search = ref('')
+const authStore = useAuthStore()
 </script>
 
 <style scoped>

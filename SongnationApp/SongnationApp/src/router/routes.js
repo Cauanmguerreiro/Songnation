@@ -2,7 +2,19 @@ const routes = [
   {
     path: '/',
     component: () => import('layouts/LayoutSemLogin.vue'),
-    children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
+    children: [
+      { path: '', component: () => import('pages/IndexPage.vue') },
+      { path: '/login', component: () => import('pages/LoginPage.vue') },
+    ],
+  },
+  {
+    path: '/logged-in',
+    component: () => import('layouts/MainLayout.vue'),
+    meta: { requiresAuth: true },
+    children: [
+      { path: '', component: () => import('pages/IndexPage.vue') }, // Example authenticated page
+      // Add other authenticated routes here
+    ],
   },
 
   // Always leave this as last one,

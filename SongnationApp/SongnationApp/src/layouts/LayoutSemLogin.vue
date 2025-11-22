@@ -7,13 +7,14 @@
     </q-page-container>
     
     <!-- LOGIN MODAL -->
-    <LoginComponent v-model="showLoginModal" />
+    <LoginComponent v-if="showLoginModal" v-model="showLoginModal" />
+
   </q-layout>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import AppHeader from 'src/components/AppHeader.vue'
+import AppHeader from 'src/components/AppHeaderSemLogin.vue'
 import AppDrawerSemLogin from 'src/components/AppDrawerSemLogin.vue'
 import LoginComponent from 'src/components/LoginComponent.vue'
 

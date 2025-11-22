@@ -2,15 +2,7 @@
   <div class="login-modal">
     <!-- Header do Modal -->
     <div class="modal-header">
-      <h2 class="modal-title">Entrar na Songnation</h2>
-      <q-btn
-        icon="close"
-        flat
-        round
-        dense
-        color="white"
-        @click="close"
-      />
+      <h2 class="modal-title">Entrar no Songnation</h2>
     </div>
 
     <!-- Body do Modal -->
@@ -28,6 +20,7 @@
           placeholder="seu.email@exemplo.com"
           type="email"
           class="form-input"
+          input-class="no-transform"
           :rules="[val => val && val.length > 0 || 'Email é obrigatório']"
         >
           <template #prepend>
@@ -82,32 +75,6 @@
         :loading="loading"
       />
 
-      <!-- Divider -->
-      <div class="divider q-my-md">
-        <span>Ou</span>
-      </div>
-
-      <!-- Social Login -->
-      <div class="social-login">
-        <q-btn
-          outline
-          color="white"
-          icon="mdi-google"
-          label="Google"
-          class="social-btn full-width q-mb-sm"
-          size="md"
-        />
-        <q-btn
-          outline
-          color="white"
-          icon="mdi-github"
-          label="GitHub"
-          class="social-btn full-width"
-          size="md"
-        />
-      </div>
-
-      <!-- Sign Up Link -->
       <p class="signup-text q-mt-md text-center">
         Não tem conta? <a href="#" class="signup-link">Crie uma agora</a>
       </p>
@@ -117,33 +84,77 @@
 
 <script setup>
 import { ref } from 'vue'
+import axios from 'axios'
+import { Notify } from 'quasar'
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'login-success'])
 
 const email = ref('')
 const password = ref('')
 const showPassword = ref(false)
 const rememberMe = ref(false)
 const loading = ref(false)
-
-const close = () => {
-  emit('update:modelValue', false)
-}
+defineProps({
+  modelValue: {
+    type: Boolean,
+    default: false
+  }
+})
 
 const login = async () => {
   if (!email.value || !password.value) {
-    console.log('Preencha todos os campos')
+    Notify.create({
+      type: 'negative',
+      message: 'Preencha todos os campos',
+      position: 'top'
+    })
     return
   }
 
   loading.value = true
   try {
-    // Sua lógica de login aqui
-    console.log('Login com:', { email: email.value, password: password.value })
-    // await loginAPI(email.value, password.value)
-    loading.value = false
+    const response = await axios.post('http://localhost:5000/usuarios/login', {
+      email: email.value,
+      password: password.value
+    })
+
+    if (response.status === 200) {
+      Notify.create({
+        type: 'positive',
+        message: 'Login realizado com sucesso!',
+        position: 'top'
+      })
+      
+      if (response.data.token) {
+        localStorage.setItem('authToken', response.data.token)
+      }
+      
+      emit('login-success', response.data)
+      emit('update:modelValue', false)
+
+      // Atualiza a página após o login (pequeno atraso para exibir a notificação/modal fechar)
+      setTimeout(() => {
+        window.location.reload()
+      }, 250)
+    }
   } catch (error) {
+    let errorMessage = 'Erro ao fazer login'
+    
+    if (error.response?.status === 401) {
+      errorMessage = 'Email ou senha incorretos'
+    } else if (error.response?.status === 404) {
+      errorMessage = 'Email ou senha incorretos'
+    } else if (!error.response) {
+      errorMessage = 'Erro de conexão com o servidor'
+    }
+    
+    Notify.create({
+      type: 'negative',
+      message: errorMessage,
+      position: 'top'
+    })
     console.error('Erro ao fazer login:', error)
+  } finally {
     loading.value = false
   }
 }

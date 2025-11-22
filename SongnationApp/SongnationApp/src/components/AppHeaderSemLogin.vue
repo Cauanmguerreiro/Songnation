@@ -2,7 +2,6 @@
   <q-header bordered class="bg-dark text-white">
     <q-toolbar style="height: 64px">
 
-      <!-- Botão de menu no canto esquerdo -->
       <q-btn
         flat dense round icon="menu"
         aria-label="Menu"
@@ -11,7 +10,6 @@
 
       <q-space class="lt-md" />
 
-      <!-- Input de pesquisa -->
       <q-input
         v-model="search"
         filled
@@ -25,29 +23,34 @@
         <template #prepend><q-icon name="search" /></template>
       </q-input>
 
-      <q-space /> <!-- empurra o botão de logout para a direita -->
+      <q-space />
 
-      <!-- Botão de logout no canto direito -->
-      <q-btn
-        flat dense round icon="logout"
-        aria-label="Sair"
-        @click="logout"
-      />
+        <q-btn
+          label="Entrar"
+          color="primary"
+          class="hero-login-btn"
+          @click="openLogin"
+        />
 
     </q-toolbar>
+
+    <q-dialog v-model="showLoginModal">
+      <LoginComponent />
+    </q-dialog>
+
   </q-header>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import LoginComponent from 'src/components/LoginComponent.vue' // Assuming this path
 
 const search = ref('')
+const showLoginModal = ref(false)
 
-function logout() {
-  localStorage.removeItem('authToken')
-  setTimeout(() => {
-    window.location.reload()
-  }, 250)
+function openLogin() {
+  console.log('Abrindo modal de login...')
+  showLoginModal.value = true
 }
 </script>
 

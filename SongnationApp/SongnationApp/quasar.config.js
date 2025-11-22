@@ -109,7 +109,7 @@ export default defineConfig((ctx) => {
       // directives: [],
 
       // Quasar plugins
-      plugins: [],
+      plugins: ['Notify'],
     },
 
     // animations: 'all', // --- includes all animations
@@ -145,7 +145,11 @@ export default defineConfig((ctx) => {
       // manualStoreSsrContextInjection: true,
       // manualStoreHydration: true,
       // manualPostHydrationTrigger: true,
-
+devServer: {
+  // https: true,
+  open: true, // opens browser window automatically
+  hmr: false, // Desabilita Hot Module Replacement WebSocket
+},
       pwa: false,
       // pwaOfflineHtmlFilename: 'offline.html', // do NOT use index.html as name!
 

@@ -1,19 +1,9 @@
 const routes = [
   {
     path: '/',
-    component: () => import('layouts/LayoutSemLogin.vue'),
+    component: () => import('layouts/AppLayout.vue'), // Layout wrapper que decide qual usar
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') },
-      // Removido: { path: '/login', component: () => import('pages/LoginPage.vue') },
-    ],
-  },
-  {
-    path: '/logged-in',
-    component: () => import('layouts/MainLayout.vue'),
-    meta: { requiresAuth: true },
-    children: [
-      { path: '', component: () => import('pages/IndexPage.vue') }, // Example authenticated page
-      // Add other authenticated routes here
     ],
   },
 
@@ -23,7 +13,6 @@ const routes = [
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue'),
   },
-  
 ]
 
 export default routes

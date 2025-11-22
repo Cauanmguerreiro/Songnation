@@ -4,7 +4,7 @@
   width: 100%;
   max-width: 440px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
+  overflow: visible;
   color: white;
   font-family: 'Inter', sans-serif;
   animation: fadeIn 0.3s ease-out;
@@ -17,7 +17,7 @@
 
 .modal-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 20px 24px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
@@ -30,6 +30,7 @@
   font-weight: 700;
   margin: 0;
   letter-spacing: -0.5px;
+  text-align: center; /* centraliza o texto */
 }
 
 .modal-body {
@@ -53,7 +54,6 @@
   font-weight: 600;
   color: #d1c7dd;
   margin-bottom: 8px;
-  text-transform: uppercase;
   letter-spacing: 0.8px;
 }
 
@@ -240,4 +240,15 @@
     padding: 14px 20px;
     font-size: 0.9rem;
   }
+}
+
+/* garante que inputs do login não fiquem maiúsculos */
+.form-input input,
+.form-input textarea {
+  text-transform: none !important;
+  /* opcional: text-transform: initial; */
+}
+
+.no-transform {
+  text-transform: none !important;
 }

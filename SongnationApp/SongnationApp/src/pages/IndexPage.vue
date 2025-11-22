@@ -33,6 +33,15 @@
           </q-input>
         </div>
 
+        <!-- Botão Entrar -->
+        <q-btn
+          label="Entrar"
+          color="primary"
+          class="hero-login-btn q-mt-lg"
+          size="lg"
+          @click="openLogin"
+        />
+
       </div>
     </section>
 
@@ -93,6 +102,9 @@
       </div>
     </section>
 
+    <!-- LOGIN MODAL -->
+    <LoginComponent v-model="showLoginModal" />
+
   </q-page>
 </template>
 
@@ -100,9 +112,11 @@
 import { ref, onMounted } from 'vue'
 import GigCard from 'src/components/GigCard.vue'
 import GigCardPlaceholder from 'src/components/GigCardPlaceholder.vue'
+import LoginComponent from 'src/components/LoginComponent.vue'
 
 const search = ref('')
 const loadingSearch = ref(false)
+const showLoginModal = ref(false)
 
 const loading = ref(true)
 const destaqueGigs = ref([])
@@ -113,6 +127,11 @@ function goToSearch() {
   if (!search.value.trim()) return
   loadingSearch.value = true
   window.location.href = `/buscar?q=${encodeURIComponent(search.value)}`
+}
+
+function openLogin() {
+  console.log('Abrindo modal de login...')
+  showLoginModal.value = true
 }
 
 onMounted(() => {
@@ -220,5 +239,18 @@ onMounted(() => {
 .index-container {
   background: #16141a;
   color: white;
+}
+
+/* BOTÃO ENTRAR DA HERO */
+.hero-login-btn {
+  background: linear-gradient(135deg, #9c27b0 0%, #e040fb 100%) !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.hero-login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(156, 39, 176, 0.4);
 }
 </style>

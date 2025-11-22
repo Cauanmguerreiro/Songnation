@@ -4,7 +4,7 @@ const routes = [
     component: () => import('layouts/LayoutSemLogin.vue'),
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') },
-      { path: '/login', component: () => import('pages/LoginPage.vue') },
+      // Removido: { path: '/login', component: () => import('pages/LoginPage.vue') },
     ],
   },
   {

@@ -25,7 +25,12 @@
 
       <q-space />
 
-      <q-btn v-if="!authStore.isLoggedIn" flat label="Entrar" to="/login" />
+      <q-btn 
+        v-if="!authStore.isLoggedIn" 
+        flat 
+        label="Entrar" 
+        @click="openLogin"
+      />
 
     </q-toolbar>
   </q-header>
@@ -37,6 +42,12 @@ import { useAuthStore } from 'src/stores/auth'
 
 const search = ref('')
 const authStore = useAuthStore()
+
+const emit = defineEmits(['openLogin'])
+
+function openLogin() {
+  emit('openLogin')
+}
 </script>
 
 <style scoped>

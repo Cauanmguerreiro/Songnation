@@ -31,10 +31,18 @@
 <script setup>
 </script>
 
-<style scoped>
-.login-logo {
-  width: 180px;
-  max-width: 70%;
-  object-fit: contain;
+<style>
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
 }
 </style>

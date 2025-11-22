@@ -25,28 +25,32 @@
 
       <q-space />
 
-      <q-btn 
-        v-if="!authStore.isLoggedIn" 
-        flat 
-        label="Entrar" 
-        @click="openLogin"
-      />
+        <q-btn
+          label="Entrar"
+          color="primary"
+          class="hero-login-btn"
+          @click="openLogin"
+        />
 
     </q-toolbar>
+
+    <q-dialog v-model="showLoginModal">
+      <LoginComponent />
+    </q-dialog>
+
   </q-header>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { useAuthStore } from 'src/stores/auth'
+import LoginComponent from 'src/components/LoginComponent.vue' // Assuming this path
 
 const search = ref('')
-const authStore = useAuthStore()
-
-const emit = defineEmits(['openLogin'])
+const showLoginModal = ref(false)
 
 function openLogin() {
-  emit('openLogin')
+  console.log('Abrindo modal de login...')
+  showLoginModal.value = true
 }
 </script>
 

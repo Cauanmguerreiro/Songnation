@@ -34,13 +34,6 @@
         </div>
 
         <!-- Botão Entrar -->
-        <q-btn
-          label="Entrar"
-          color="primary"
-          class="hero-login-btn q-mt-lg"
-          size="lg"
-          @click="openLogin"
-        />
 
       </div>
     </section>
@@ -102,8 +95,6 @@
       </div>
     </section>
 
-    <!-- LOGIN MODAL -->
-    <LoginComponent v-model="showLoginModal" />
 
   </q-page>
 </template>
@@ -112,11 +103,9 @@
 import { ref, onMounted } from 'vue'
 import GigCard from 'src/components/GigCard.vue'
 import GigCardPlaceholder from 'src/components/GigCardPlaceholder.vue'
-import LoginComponent from 'src/components/LoginComponent.vue'
 
 const search = ref('')
 const loadingSearch = ref(false)
-const showLoginModal = ref(false)
 
 const loading = ref(true)
 const destaqueGigs = ref([])
@@ -129,10 +118,7 @@ function goToSearch() {
   window.location.href = `/buscar?q=${encodeURIComponent(search.value)}`
 }
 
-function openLogin() {
-  console.log('Abrindo modal de login...')
-  showLoginModal.value = true
-}
+
 
 onMounted(() => {
   setTimeout(() => {

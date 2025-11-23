@@ -1,46 +1,57 @@
-.login-modal {
-  background: $dark; /* Using Quasar's dark variable */
-  border-radius: 12px;
+.criar-card {
+  background: $dark;
+  border-radius: 14px;
   width: 100%;
-  max-width: 440px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  overflow: visible;
+  max-width: 620px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 0 18px rgba(224, 64, 251, 0.15);
+  overflow: hidden;
   color: white;
   font-family: 'Inter', sans-serif;
   animation: fadeIn 0.3s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  /* detalhe roxo lateral */
+  position: relative;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.criar-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, $accent, $primary);
+  border-radius: 5px 0 0 5px;
 }
 
-.modal-header {
+.criar-header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 24px;
+  padding: 22px 24px;
+  background: #2A1E2C;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  background: #2A1E2C; /* Using Quasar's primary */
-  color: white;
 }
 
-.modal-title {
+.criar-title {
   font-size: 1.5rem;
   font-weight: 700;
   margin: 0;
   letter-spacing: -0.5px;
-  text-align: center; /* centraliza o texto */
+  text-align: center;
 }
 
-.modal-body {
-  padding: 32px 24px;
+.criar-body {
+  padding: 32px 28px;
 }
 
-.modal-subtitle {
+.criar-subtitle {
   font-size: 0.95rem;
   color: #b0a0c0;
-  margin: 0 0 28px 0;
+  margin: 0 0 24px 0;
   line-height: 1.5;
 }
 
@@ -58,32 +69,34 @@
 }
 
 .form-input {
-  --q-primary: $accent; /* Using Quasar's accent */
+  --q-primary: $accent;
   transition: all 0.2s ease-in-out;
 }
 
+/* INPUTS */
 :deep(.form-input .q-field__control) {
-  background-color: $dark-page !important; /* Using Quasar's dark-page */
+  background-color: $dark-page !important;
   border-radius: 8px;
-  padding: 8px 16px; /* Adjusted padding */
-  min-height: 48px; /* Ensure minimum height */
+  padding: 8px 16px;
+  min-height: 48px;
   color: white;
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 :deep(.form-input .q-field__control:hover) {
-  border-color: $primary; /* Using Quasar's primary */
+  border-color: $primary;
 }
 
 :deep(.form-input.q-field--focused .q-field__control) {
-  border-color: $accent; /* Using Quasar's accent */
+  border-color: $accent;
   box-shadow: 0 0 0 3px rgba(224, 64, 251, 0.3);
 }
 
 :deep(.form-input .q-field__native,
 :deep(.form-input .q-field__input)) {
   color: white;
+  text-transform: none !important;
 }
 
 :deep(.form-input .q-field__native::placeholder,
@@ -91,164 +104,53 @@
   color: #757575;
 }
 
-:deep(.form-input .q-icon) {
-  color: #b0b0b0;
-}
-
-:deep(.form-input.q-field--filled .q-field__control:before) {
-  border: none;
-}
-
-.form-footer {
-  font-size: 0.85rem;
-  margin-top: 16px;
-  margin-bottom: 24px;
-}
-
-.checkbox-label {
-  --q-primary: $accent; /* Using Quasar's accent */
-}
-
-:deep(.checkbox-label .q-checkbox__inner) {
-  color: $accent; /* Using Quasar's accent */
-}
-
-.forgot-link {
-  color: $accent; /* Using Quasar's accent */
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.forgot-link:hover {
-  color: #ff80ff;
-  text-decoration: underline;
-}
-
-.login-btn {
-  background: linear-gradient(145deg, $accent 0%, $primary 100%); /* Using Quasar's accent and primary */
+/* BOTÃO */
+.criar-btn {
+  background: linear-gradient(145deg, $accent 0%, $primary 100%);
   color: white;
   font-weight: 700;
   letter-spacing: 0.7px;
   border-radius: 8px;
   text-transform: uppercase;
-  padding: 12px 24px;
+  padding: 14px 24px;
   font-size: 1rem;
+  width: 100%;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
 }
 
-.login-btn:hover {
+.criar-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(224, 64, 251, 0.4);
 }
 
-.login-btn.q-btn--loading .q-spinner {
-  color: white;
-}
-
-.divider {
+/* divisor decorativo */
+.criar-divider {
   display: flex;
   align-items: center;
   color: #757575;
   font-size: 0.8rem;
-  margin: 32px 0;
+  margin: 28px 0;
 }
 
-.divider::before,
-.divider::after {
+.criar-divider::before,
+.criar-divider::after {
   content: '';
   flex: 1;
   height: 1px;
   background: rgba(255, 255, 255, 0.12);
 }
 
-.divider span {
+.criar-divider span {
   margin: 0 16px;
   color: #b0b0b0;
   font-weight: 500;
 }
 
-.social-login {
+/* página */
+.criar-container {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin: 24px 0;
-}
-
-.social-btn {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: white;
-  font-weight: 500;
-  border-radius: 8px;
-  padding: 12px 24px;
-  font-size: 0.95rem;
-  transition: all 0.2s ease;
-  background-color: $dark-page; /* Using Quasar's dark-page */
-}
-
-.social-btn .q-icon {
-  font-size: 1.2rem;
-  margin-right: 10px;
-}
-
-.social-btn:hover {
-  background-color: #282828;
-  border-color: $primary; /* Using Quasar's primary */
-  color: white;
-}
-
-.signup-text {
-  font-size: 0.9rem;
-  color: #b0b0b0;
-  margin: 28px 0 0 0;
-}
-
-.signup-link {
-  color: $accent; /* Using Quasar's accent */
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s ease;
-}
-
-.signup-link:hover {
-  color: #ff80ff;
-  text-decoration: underline;
-}
-
-@media (max-width: 480px) {
-  .login-modal {
-    border-radius: 0;
-    max-width: 100%;
-    height: 100%;
-  }
-
-  .modal-header {
-    padding: 16px 20px;
-  }
-
-  .modal-title {
-    font-size: 1.3rem;
-  }
-
-  .modal-body {
-    padding: 24px 20px;
-  }
-
-  .login-btn,
-  .social-btn {
-    padding: 14px 20px;
-    font-size: 0.9rem;
-  }
-}
-
-/* garante que inputs do login não fiquem maiúsculos */
-.form-input input,
-.form-input textarea {
-  text-transform: none !important;
-  /* opcional: text-transform: initial; */
-}
-
-.no-transform {
-  text-transform: none !important;
+  justify-content: center;
+  padding-top: 40px;
 }

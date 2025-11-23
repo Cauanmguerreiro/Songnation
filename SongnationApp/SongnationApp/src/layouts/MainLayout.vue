@@ -20,7 +20,7 @@ const menus = [
   { label: 'Início', icon: 'home', to: '/' },
   { label: 'Pesquisar', icon: 'search', to: '/pesquisar' },
   { label: 'Biblioteca', icon: 'bar_chart', to: '/biblioteca' },
-  { label: 'Criar Projeto', icon: 'add', to: '/criar-projeto' },
+  { label: 'Criar Projeto', icon: 'add', to: '/criar-composicao' },
   { label: 'Curtidos', icon: 'favorite_border', to: '/sons-curtidos' }
 ]
 </script>

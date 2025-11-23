@@ -29,12 +29,20 @@ export async function postUsuarioController(req, res) {
 
 export async function logarUsuariosController(req, res){
     try {
-        const { email, senha } = req.body;
+        console.log('POST /usuarios/login body:', req.body);
 
-        const usuario = await loginUsuario(email)
+        const { email } = req.body;
+        // aceita tanto "senha" quanto "password" enviado pelo front
+        const senha = req.body.senha ?? req.body.password;
+
+        if (!email || !senha) {
+            return res.status(400).json({ message: 'Email e senha são obrigatórios' });
+        }
+
+        const usuario = await loginUsuario(email);
     
         if(!usuario){
-            return res.status(401).send('Usuário não encontrado.')
+            return res.status(404).json({ message: 'Usuário não encontrado.' });
         }
 
         const senhaValida = await bcrypt.compare(senha, usuario.senha);
@@ -42,10 +50,17 @@ export async function logarUsuariosController(req, res){
             return res.status(401).json({ message: 'Senha inválida' });
         }
 
-        const token = jwt.sign( {email}, chaveJWT, { expiresIn: '1h' })   
-        res.status(200).send(token)
+        if (!chaveJWT) {
+            console.error('JWT_KEY não definida em process.env');
+            return res.status(500).json({ message: 'Configuração do servidor incompleta' });
+        }
+
+        const token = jwt.sign({ email }, chaveJWT, { expiresIn: '1h' });
+        // envia token como objeto JSON (facilita uso em frontend)
+        res.status(200).json({ token });
 
     } catch (error) {
+        console.error('Erro em logarUsuariosController:', error);
         res.status(500).json({ message: 'Erro ao fazer login', error: error.message });
     }
 }

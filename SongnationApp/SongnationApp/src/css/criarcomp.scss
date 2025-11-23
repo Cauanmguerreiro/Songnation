@@ -1,0 +1,107 @@
+.criar-card {
+  background: #1b1b1d;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  overflow: visible;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  animation: fadeIn 0.3s ease-out;
+  padding: 32px 28px;
+  margin-top: 40px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.criar-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.criar-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.criar-subtitle {
+  font-size: 0.95rem;
+  color: #b0a0c0;
+  margin-top: 6px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #d1c7dd;
+  margin-bottom: 8px;
+  letter-spacing: 0.8px;
+}
+
+.form-input {
+  transition: all 0.2s ease-in-out;
+}
+
+:deep(.form-input .q-field__control) {
+  background-color: #2b2b2e;
+  border-radius: 8px;
+  padding: 8px 16px;
+  min-height: 48px;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+:deep(.form-input .q-field__control:hover) {
+  border-color: #e040fb;
+}
+
+:deep(.form-input.q-field--focused .q-field__control) {
+  border-color: #e040fb;
+  box-shadow: 0 0 0 3px rgba(224, 64, 251, 0.3);
+}
+
+:deep(.form-input .q-field__native,
+:deep(.form-input .q-field__input)) {
+  color: white;
+}
+
+:deep(.form-input .q-field__native::placeholder,
+:deep(.form-input .q-field__input::placeholder)) {
+  color: #757575;
+}
+
+.criar-btn {
+  background: linear-gradient(145deg, #e040fb 0%, #8e24aa 100%);
+  color: white;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  width: 100%;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.criar-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(224, 64, 251, 0.4);
+}
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  background: #121212;
+}

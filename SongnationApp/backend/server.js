@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import express from 'express';
+import cors from 'cors';
 import conectaDB from './dbConnect.js';
 import routeComposicoes from './routes/routeComposicoes.js';
 import routeUsuarios from './routes/routeUsuarios.js';
@@ -20,5 +21,7 @@ app.listen(PORT, () => {
 });
 
 app.use(express.json());
+// Habilita CORS (ajuste origin conforme necessário)
+app.use(cors({ origin: 'http://localhost:9000', credentials: true }));
 app.use('/composicoes', routeComposicoes);
 app.use('/usuarios', routeUsuarios);

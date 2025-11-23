@@ -13,6 +13,13 @@ const routes = [
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue'),
   },
+  {
+    path: '/criar-composicao',
+    component: () => import('layouts/AppLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/CriarComposicao.vue') },
+    ],
+  }
 ]
 
 export default routes

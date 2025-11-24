@@ -21,7 +21,25 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/CriarComposicao.vue') },
     ],
-  }
+  },
+
+  {
+    path: '/perfil',
+    component: () => import('layouts/AppLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/Perfil.vue') },
+    ],
+  },
+
+   {
+    path: '/criar-composicao',
+    component: () => import('layouts/AppLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/CriarComposicao.vue') },
+    ],
+  },
+
 ]
+
 
 export default routes

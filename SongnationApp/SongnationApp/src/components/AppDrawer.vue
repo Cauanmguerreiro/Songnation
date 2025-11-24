@@ -8,16 +8,20 @@
   >
     <div class="column full-height">
 
+      <!-- Toolbar -->
       <q-toolbar style="height: 64px">
         <div class="drawer-brand row items-center no-wrap">
-      
           <img src="/src/assets/textologo.png" alt="SongNation" class="text-logo" />
         </div>
         <q-btn dense flat round icon="close" class="lt-md"
           @click="localValue = false" />
       </q-toolbar>
 
+      <!-- 👤 Perfil Component Added Here -->
+      <PerfilCard />
+
       <q-scroll-area class="col">
+
         <q-list padding class="main-menu-list">
           <q-item v-for="(m, i) in menus" :key="i" clickable v-ripple :to="m.to">
             <q-item-section avatar><q-icon :name="m.icon" /></q-item-section>
@@ -61,39 +65,4 @@
   </q-drawer>
 </template>
 
-<script setup>
-import { ref, watch } from 'vue'
 
-const props = defineProps({
-  modelValue: Boolean,
-  menus: Array
-})
-
-const emit = defineEmits(["update:modelValue"])
-
-// Valor interno para evitar mutação da prop
-const localValue = ref(props.modelValue)
-
-// Quando mudar localmente → envia para o pai
-watch(localValue, v => emit("update:modelValue", v))
-
-// Quando o pai mudar → atualiza local
-watch(() => props.modelValue, v => (localValue.value = v))
-</script>
-
-<style scoped>
-.logo {
-  height: 44px;
-  margin-right: 8px;
-}
-.text-logo {
-  padding-left: 2.5vh;
-  height: 20vh;  /* antes era 28px */
-  width: auto;
-}
-
-.main-menu-list .q-item {
-  margin: 6px 12px;
-  border-radius: 8px;
-}
-</style>

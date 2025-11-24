@@ -48,16 +48,23 @@
   </q-page>
 </template>
 
+<!-- 👇 ADICIONAR ESTE SCRIPT (RESOLVE ESLINT) -->
+<script>
+export default {
+  name: "PerfilPage",
+};
+</script>
+
 <script setup>
 import { ref } from "vue";
-import GigCard from "src/components/GigCard.vue"; // ⬅ using the card with value + name
+import GigCard from "src/components/GigCard.vue";
 
 const rating = ref(4);
 
 const generos = ref([
   { id: 1, title: "Trap Melódico", price: 200 },
   { id: 2, title: "Sertanejo Hits", price: 150 },
-  { id: 3, title: "Pop Comercial", price: 180 }
+  { id: 3, title: "Pop Comercial", price: 180 },
 ]);
 </script>
 

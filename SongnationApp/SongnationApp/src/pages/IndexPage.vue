@@ -92,15 +92,15 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router' // Importação necessária
+import { useRouter } from 'vue-router'
 
-// Importação dos seus componentes
+
 import GigCard from 'src/components/GigCard.vue'
 import GigCardPlaceholder from 'src/components/GigCardPlaceholder.vue'
 import ProfileCard from 'src/components/ProfileCard.vue'
 import GenreCard from 'src/components/GenreCard.vue'
 
-// Inicializa o Router
+
 const router = useRouter()
 
 const search = ref('')
@@ -116,7 +116,7 @@ function goToSearch() {
   
   loadingSearch.value = true
   
-  // Navegação correta usando Vue Router (sem recarregar a página)
+
   router.push({ 
     path: '/buscar', 
     query: { q: search.value } 
@@ -142,11 +142,11 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* HERO */
+
 .hero-section {
   width: 100%;
   min-height: 320px;
-  /* Garanta que a imagem hero-bg.png existe em src/assets/ */
+
   background-image: url('src/assets/hero-bg.png');
   background-size: cover;
   background-position: center;
@@ -161,7 +161,7 @@ onMounted(() => {
   color: white;
 }
 
-/* DARK OVERLAY SEM REMOVER A IMAGEM */
+
 .hero-section::before {
   content: "";
   position: absolute;
@@ -233,7 +233,7 @@ onMounted(() => {
   color: white;
 }
 
-/* BOTÃO ENTRAR DA HERO (Se você for usar no futuro) */
+
 .hero-login-btn {
   background: linear-gradient(135deg, #9c27b0 0%, #e040fb 100%) !important;
   font-weight: 600;

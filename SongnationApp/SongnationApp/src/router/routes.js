@@ -41,7 +41,7 @@ const routes = [
     ],
   },
 
-  // 404
+
   {
     path: '/:catchAll(.*)*',
     name: 'erro-404',

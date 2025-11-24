@@ -49,6 +49,16 @@
             <q-item-section>Colaborações</q-item-section>
           </q-item>
 
+          <q-item clickable v-ripple to="/criar-composicao">
+            <q-item-section avatar><q-icon name="add" /></q-item-section>
+            <q-item-section>Criar Composição</q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple to="/sons-curtidos">
+            <q-item-section avatar><q-icon name="favorite_border" /></q-item-section>
+            <q-item-section>Curtidos</q-item-section>
+          </q-item>
+
           <q-separator class="q-my-md" dark />
 
           <!-- Perfil -->

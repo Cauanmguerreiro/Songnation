@@ -27,8 +27,6 @@ const menus = [
   { label: 'Início', icon: 'home', to: '/' },
   { label: 'Pesquisar', icon: 'search', to: '/pesquisar' },
   { label: 'Biblioteca', icon: 'bar_chart', to: '/biblioteca' },
-  { label: 'Perfil', icon: 'account_circle', to: '/perfil' },
-  { label: 'Criar Composição', icon: 'edit', to: '/criar-composicao' },
 ]
 </script>
 

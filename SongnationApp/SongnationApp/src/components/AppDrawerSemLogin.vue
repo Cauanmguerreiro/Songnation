@@ -28,7 +28,7 @@
         <q-list padding>
           <q-item-label header class="text-grey-6">Navegar</q-item-label>
 
-          <q-item clickable v-ripple to="/compositores">
+          <q-item clickable v-ripple to="/generos">
             <q-item-section avatar><q-icon name="music_note" /></q-item-section>
             <q-item-section>Compositores</q-item-section>
           </q-item>

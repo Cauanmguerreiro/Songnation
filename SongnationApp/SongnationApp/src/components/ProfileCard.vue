@@ -1,6 +1,9 @@
 <script setup>
+import {useRouter} from 'vue-router'
+const router = useRouter()
 import VerifiedBadge from './VerifiedBadge.vue';
-defineProps({
+const props = defineProps({
+  id: Number,
   name: { type: String, default: 'NOME' },
   role: { type: String, default: 'Composer' },
   genre: { type: String, default: 'GENERO' },
@@ -8,10 +11,14 @@ defineProps({
   count: { type: String, default: '45+' },
   isVerified: { type: Boolean, default: true }
 });
+
+function goToProfile() {
+  router.push(`/perfil/${props.id}`)
+}
 </script>
 
 <template>
-  <div class="card">
+  <div class="card" @click="goToProfile">
     <div v-if="isVerified" class="badge-container">
       <VerifiedBadge />
     </div>

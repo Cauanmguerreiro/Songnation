@@ -21,6 +21,7 @@
                         class="col-12 col-sm-6 col-md-4"
                     >
                         <ProfileCard 
+                            :id="artist.id"
                             :name="artist.name"
                             :role="artist.role"
                             :genre="artist.genre"
@@ -43,7 +44,7 @@
     </template>
 
     <script setup>
-    import { ref, computed, on Mounted } from 'vue'
+    import { ref, computed, onMounted } from 'vue'
     import { useRoute } from 'vue-router'
     import ProfileCard from 'src/components/ProfileCard.vue'
 

@@ -48,8 +48,16 @@
   </q-page>
 </template>
 
+<!-- 👇 ADICIONAR ESTE SCRIPT (RESOLVE ESLINT) -->
+<script>
+export default {
+  name: "PerfilPage",
+};
+</script>
+
 <script setup>
 import { ref } from "vue";
+<<<<<<< HEAD
 import GigCard from "src/components/GigCard.vue"; // ⬅ using the card with value + name
 import {useRoute} from 'vue-router';
 
@@ -67,13 +75,16 @@ const allArtists = [
 const artistId = route.params.id;
 
 const artist = allArtists.find(a => a.id == artistId)
+=======
+import GigCard from "src/components/GigCard.vue";
+>>>>>>> 32f67573a10014e9471bd3abb7153afa6fb1ad29
 
 const rating = ref(4);
 
 const generos = ref([
   { id: 1, title: "Trap Melódico", price: 200 },
   { id: 2, title: "Sertanejo Hits", price: 150 },
-  { id: 3, title: "Pop Comercial", price: 180 }
+  { id: 3, title: "Pop Comercial", price: 180 },
 ]);
 </script>
 

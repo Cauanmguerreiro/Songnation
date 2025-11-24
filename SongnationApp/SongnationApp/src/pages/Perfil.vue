@@ -11,14 +11,8 @@
 
       <!-- NAME + RATING -->
       <div class="column q-gutter-xs">
-
-        <!-- NAME -->
-        <div class="text-h4 text-weight-bold">{{artist.name}}</div>
-
-        <!-- "Avaliação" text -->
+        <div class="text-h4 text-weight-bold">{{ artist?.name || 'Artista' }}</div>
         <div class="text-grey-5 text-caption">Avaliação</div>
-
-        <!-- Stars -->
         <q-rating
           v-model="rating"
           max="5"
@@ -28,7 +22,6 @@
           readonly
         />
       </div>
-
     </div>
 
     <!-- SECTION TITLE -->
@@ -48,38 +41,26 @@
   </q-page>
 </template>
 
-<!-- 👇 ADICIONAR ESTE SCRIPT (RESOLVE ESLINT) -->
-<script>
-export default {
-  name: "PerfilPage",
-};
-</script>
-
 <script setup>
 import { ref } from "vue";
-<<<<<<< HEAD
-import GigCard from "src/components/GigCard.vue"; // ⬅ using the card with value + name
-import {useRoute} from 'vue-router';
+import { useRoute } from 'vue-router';
+import GigCard from "src/components/GigCard.vue";
+
+// banco de dados simulado
+const allArtists = [
+  { id: 1, name: 'Alex Morgan', role: 'Composer', genre: 'Pop & Electronic', rating: 4.9, count: '45+', verified: true, tags: ['pop', 'edm', 'party'] },
+  { id: 2, name: 'Sarah Chen', role: 'Composer', genre: 'Classical & Orchestral', rating: 5.0, count: '78+', verified: true, tags: ['chill', 'focus', 'mood'] },
+  { id: 3, name: 'Marcus Johnson', role: 'Composer', genre: 'Hip Hop & R&B', rating: 4.8, count: '32+', verified: true, tags: ['hip-hop', 'workout'] },
+  { id: 4, name: 'Lisa Park', role: 'Composer', genre: 'Indie & Alternative', rating: 4.7, count: '23+', verified: false, tags: ['chill', 'mood', 'pop'] },
+  { id: 5, name: 'André Mattos', role: 'Composer', genre: 'Rock & Metal', rating: 4.9, count: '56+', verified: true, tags: ['rock', 'workout'] },
+  { id: 6, name: 'Emily Rose', role: 'Songwriter', genre: 'Country & Folk', rating: 4.6, count: '12+', verified: true, tags: ['country', 'chill'] },
+];
 
 const route = useRoute();
+const artistId = Number(route.params.id);
+const artist = allArtists.find(a => a.id === artistId);
 
-const allArtists = [
-        { id: 1, name: 'Alex Morgan', role: 'Composer', genre: 'Pop & Electronic', rating: 4.9, count: '45+', verified: true, tags: ['pop', 'edm', 'party'] },
-        { id: 2, name: 'Sarah Chen', role: 'Composer', genre: 'Classical & Orchestral', rating: 5.0, count: '78+', verified: true, tags: ['chill', 'focus', 'mood'] },
-        { id: 3, name: 'Marcus Johnson', role: 'Composer', genre: 'Hip Hop & R&B', rating: 4.8, count: '32+', verified: true, tags: ['hip-hop', 'workout'] },
-        { id: 4, name: 'Lisa Park', role: 'Composer', genre: 'Indie & Alternative', rating: 4.7, count: '23+', verified: false, tags: ['chill', 'mood', 'pop'] },
-        { id: 5, name: 'André Mattos', role: 'Composer', genre: 'Rock & Metal', rating: 4.9, count: '56+', verified: true, tags: ['rock', 'workout'] },
-        { id: 6, name: 'Emily Rose', role: 'Songwriter', genre: 'Country & Folk', rating: 4.6, count: '12+', verified: true, tags: ['country', 'chill'] },
-]
-
-const artistId = route.params.id;
-
-const artist = allArtists.find(a => a.id == artistId)
-=======
-import GigCard from "src/components/GigCard.vue";
->>>>>>> 32f67573a10014e9471bd3abb7153afa6fb1ad29
-
-const rating = ref(4);
+const rating = ref(artist?.rating || 4);
 
 const generos = ref([
   { id: 1, title: "Trap Melódico", price: 200 },

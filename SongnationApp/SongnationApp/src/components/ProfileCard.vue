@@ -13,7 +13,7 @@ const props = defineProps({
 });
 
 function goToProfile() {
-  router.push(`/perfil/${props.id}`)
+  router.push(`/compositor/${props.id}`)
 }
 </script>
 

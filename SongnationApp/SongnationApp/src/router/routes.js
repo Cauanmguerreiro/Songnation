@@ -34,8 +34,8 @@ const routes = [
       },
 
       {
-        path: '/perfil/:id',
-        name: 'perfil',
+        path: '/compositor/:id',
+        name: 'compositor',
         component: () => import('pages/PerfilPage.vue')
       },
     ],

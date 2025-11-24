@@ -53,7 +53,7 @@
         </div>
 
         <div v-else class="cards-row">
-          <GigCard v-for="g in destaqueGigs" :key="g.id" :gig="g" />
+          <ProfileCard v-for="g in destaqueGigs" :key="g.id" :gig="g" />
         </div>
 
       </div>
@@ -89,7 +89,7 @@
           </template>
 
           <template v-else>
-            <GigCard v-for="g in compositoresAlta" :key="g.id" :gig="g" />
+            <GenreCard v-for="g in compositoresAlta" :key="g.id" :gig="g" />
           </template>
         </div>
       </div>
@@ -103,6 +103,8 @@
 import { ref, onMounted } from 'vue'
 import GigCard from 'src/components/GigCard.vue'
 import GigCardPlaceholder from 'src/components/GigCardPlaceholder.vue'
+import ProfileCard from 'src/components/ProfileCard.vue'
+import GenreCard from 'src/components/GenreCard.vue'
 
 const search = ref('')
 const loadingSearch = ref(false)

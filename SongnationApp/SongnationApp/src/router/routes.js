@@ -4,6 +4,8 @@ const routes = [
     component: () => import('layouts/AppLayout.vue'), // Layout wrapper que decide qual usar
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') },
+      { path: 'generos', component: () => import('pages/GenreSelectionPage.vue') },
+      //{ path: 'composicoes/:genreSlug', component: () => import('pages/ListaComposicoes.vue') }
     ],
   },
 

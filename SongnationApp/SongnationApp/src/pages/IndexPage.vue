@@ -1,7 +1,6 @@
 <template>
   <q-page class="index-container">
 
-    <!-- HERO -->
     <section class="hero-section q-pa-xl">
       <div class="hero-content text-center">
 
@@ -14,7 +13,6 @@
           Descubra letras inéditas, encontre seu próximo sucesso e dê voz a novos talentos.
         </p>
 
-        <!-- Busca principal -->
         <div class="search-wrapper q-mt-lg">
           <q-input
             v-model="search"
@@ -33,15 +31,11 @@
           </q-input>
         </div>
 
-        <!-- Botão Entrar -->
-
       </div>
     </section>
 
-    <!-- SEÇÕES DE CONTEÚDO -->
     <section class="content-sections q-px-xl q-pb-xl">
 
-      <!-- 1. Destaques da Semana -->
       <div class="section-block">
         <div class="section-header row justify-between items-center q-mb-sm">
           <h2>Artistas Em Destaque</h2>
@@ -58,7 +52,6 @@
 
       </div>
 
-      <!-- 2. Gêneros Populares -->
       <div class="section-block">
         <div class="section-header row justify-between items-center q-mb-sm">
           <h2>Gêneros Populares</h2>
@@ -76,10 +69,9 @@
         </div>
       </div>
 
-      <!-- 3. Compositores em Alta -->
       <div class="section-block">
         <div class="section-header row justify-between items-center q-mb-sm">
-          <h2>Novos Artista</h2>
+          <h2>Novos Artistas</h2>
           <q-btn flat label="Ver ranking" to="/compositores" color="primary" />
         </div>
 
@@ -95,16 +87,21 @@
       </div>
     </section>
 
-
   </q-page>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router' // Importação necessária
+
+// Importação dos seus componentes
 import GigCard from 'src/components/GigCard.vue'
 import GigCardPlaceholder from 'src/components/GigCardPlaceholder.vue'
 import ProfileCard from 'src/components/ProfileCard.vue'
 import GenreCard from 'src/components/GenreCard.vue'
+
+// Inicializa o Router
+const router = useRouter()
 
 const search = ref('')
 const loadingSearch = ref(false)
@@ -116,11 +113,17 @@ const compositoresAlta = ref([])
 
 function goToSearch() {
   if (!search.value.trim()) return
+  
   loadingSearch.value = true
-  window.location.href = `/buscar?q=${encodeURIComponent(search.value)}`
+  
+  // Navegação correta usando Vue Router (sem recarregar a página)
+  router.push({ 
+    path: '/buscar', 
+    query: { q: search.value } 
+  }).then(() => {
+    loadingSearch.value = false
+  })
 }
-
-
 
 onMounted(() => {
   setTimeout(() => {
@@ -143,6 +146,7 @@ onMounted(() => {
 .hero-section {
   width: 100%;
   min-height: 320px;
+  /* Garanta que a imagem hero-bg.png existe em src/assets/ */
   background-image: url('src/assets/hero-bg.png');
   background-size: cover;
   background-position: center;
@@ -229,7 +233,7 @@ onMounted(() => {
   color: white;
 }
 
-/* BOTÃO ENTRAR DA HERO */
+/* BOTÃO ENTRAR DA HERO (Se você for usar no futuro) */
 .hero-login-btn {
   background: linear-gradient(135deg, #9c27b0 0%, #e040fb 100%) !important;
   font-weight: 600;

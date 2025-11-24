@@ -1,45 +1,52 @@
 const routes = [
   {
     path: '/',
-    component: () => import('layouts/AppLayout.vue'), // Layout wrapper que decide qual usar
+    component: () => import('layouts/AppLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/IndexPage.vue') },
-      { path: 'generos', component: () => import('pages/GenreSelectionPage.vue') },
-      { path: 'compositores/:genreSlug', component: () => import('src/pages/CompositoresPage.vue') }
+      {
+        path: '',
+        name: 'home',
+        component: () => import('pages/IndexPage.vue')
+      },
+
+      {
+        path: 'pesquisar',
+        name: 'pesquisar',
+        component: () => import('pages/SearchPage.vue')
+      },
+
+      {
+        path: 'generos',
+        name: 'generos',
+        component: () => import('pages/GenreSelectionPage.vue')
+      },
+
+      {
+        path: 'compositores/:genreSlug',
+        name: 'compositores',
+        component: () => import('pages/CompositoresPage.vue')
+      },
+
+      {
+        path: 'criar-composicao',
+        name: 'criar-composicao',
+        component: () => import('pages/CriarComposicao.vue')
+      },
+
+      {
+        path: 'perfil',
+        name: 'perfil',
+        component: () => import('pages/Perfil.vue')
+      },
     ],
   },
 
-  // Always leave this as last one,
-  // but you can also remove it
+  // 404
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue'),
-  },
-  {
-    path: '/criar-composicao',
-    component: () => import('layouts/AppLayout.vue'),
-    children: [
-      { path: '', component: () => import('pages/CriarComposicao.vue') },
-    ],
-  },
-
-  {
-    path: '/perfil',
-    component: () => import('layouts/AppLayout.vue'),
-    children: [
-      { path: '', component: () => import('pages/Perfil.vue') },
-    ],
-  },
-
-   {
-    path: '/criar-composicao',
-    component: () => import('layouts/AppLayout.vue'),
-    children: [
-      { path: '', component: () => import('pages/CriarComposicao.vue') },
-    ],
-  },
-
+    name: 'erro-404',
+    component: () => import('pages/ErrorNotFound.vue')
+  }
 ]
-
 
 export default routes

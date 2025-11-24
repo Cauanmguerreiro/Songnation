@@ -9,7 +9,7 @@
     <div class="column full-height">
 
       <!-- Toolbar -->
-      <q-toolbar style="height: 64px">
+      <q-toolbar style="height: 40px">
         <div class="drawer-brand row items-center no-wrap">
           <img src="/src/assets/textologo.png" alt="SongNation" class="text-logo" />
         </div>
@@ -76,3 +76,11 @@
     </div>
   </q-drawer>
 </template>
+
+<style scoped>
+.text-logo {
+  padding-left: 2.5vh;
+  height: 20vh;
+  width: auto;
+}
+</style>

@@ -4,7 +4,7 @@
             <h1 class="page-title">
                 Que tipo de <span>composição</span> procura?
             </h1>
-            <p class="page-subtitle">Selecione um estilo para ver as composições disponíveis</p>
+            <p class="page-subtitle">Selecione um estilo para ver os compositores disponíveis</p>
         </div>
 
         <div class="grid-container q-px-xl q-pb-xl">
@@ -42,13 +42,12 @@ const genres = ref([
 
 function selectGenre(genre) {
     console.log('Gênero selecionado: ', genre.name)
-    router.push(`/composicoes/${genre.slug}`)
+    router.push(`/compositores/${genre.slug}`)
 }
 </script>
 
 <style scoped>
 .genre-page-container {
-    background: #16141a;
     min-height: 100vh;
     color: white;
 }

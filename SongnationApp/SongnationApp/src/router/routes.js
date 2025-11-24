@@ -5,7 +5,7 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') },
       { path: 'generos', component: () => import('pages/GenreSelectionPage.vue') },
-      //{ path: 'composicoes/:genreSlug', component: () => import('pages/ListaComposicoes.vue') }
+      { path: 'compositores/:genreSlug', component: () => import('src/pages/CompositoresPage.vue') }
     ],
   },
 

@@ -110,6 +110,7 @@ export default defineConfig((ctx) => {
 
       // Quasar plugins
       plugins: ['Notify'],
+      iconSet: 'mdi-v6',
     },
 
     // animations: 'all', // --- includes all animations

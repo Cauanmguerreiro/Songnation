@@ -15,8 +15,10 @@
     "postinstall": "quasar prepare"
   },
   "dependencies": {
-    "@quasar/extras": "^1.16.4",
+    "@mdi/js": "^7.4.47",
+    "@quasar/extras": "^1.17.0",
     "axios": "^1.13.2",
+    "mdi": "^2.2.43",
     "pinia": "^3.0.1",
     "quasar": "^2.16.0",
     "vue": "^3.5.22",

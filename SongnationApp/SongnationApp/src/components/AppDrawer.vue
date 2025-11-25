@@ -32,6 +32,13 @@
 
         <!-- NAVEGAR -->
         <q-list padding>
+          <q-list padding class="main-menu-list">
+          <q-item v-for="(m, i) in menus" :key="i" clickable v-ripple :to="m.to">
+            <q-item-section avatar><q-icon :name="m.icon" /></q-item-section>
+            <q-item-section>{{ m.label }}</q-item-section>
+          </q-item>
+        </q-list>
+
           <q-item-label header class="text-grey-6">Navegar</q-item-label>
 
           <q-item clickable v-ripple to="/generos">
